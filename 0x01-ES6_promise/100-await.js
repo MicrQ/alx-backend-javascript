@@ -10,7 +10,7 @@ export default async function asyncUploadUser() {
   } catch (e) {
     obj = {
       photo: null,
-      user: null
+      user: null,
     };
   }
 
