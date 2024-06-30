@@ -1,4 +1,4 @@
-import Car from "./10-car";
+import Car from './10-car';
 
 export default class EvCar extends Car {
   constructor(brand, motor, color, range) {
