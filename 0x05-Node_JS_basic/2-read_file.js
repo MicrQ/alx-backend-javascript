@@ -1,5 +1,6 @@
 const fs = require('fs');
 
+
 const countStudents = (db_path) => {
   if (!fs.existsSync(db_path)) {
     throw new Error('Cannot load the database');
