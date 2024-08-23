@@ -11,7 +11,7 @@ app.on('request', (_, res) => {
   res.setHeader('Content-Type', 'text/plain');
   res.setHeader('Content-Length', response.length);
   res.statusCode = 200;
-  res.write(Buffer.from(responseText));
+  res.write(Buffer.from(response));
 });
 
 app.listen(PORT, HOST, () => {
