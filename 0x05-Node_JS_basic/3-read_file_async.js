@@ -10,7 +10,7 @@ const countStudents = (path) => new Promise((resolve, reject) => {
         .toString('utf-8')
         .trim()
         .split('\n');
-      const stud_grp = {};
+      const studGrp = {};
       const dbFieldNames = fileLines[0].split(',');
       const studentPropNames = dbFieldNames
         .slice(0, dbFieldNames.length - 1);
@@ -20,19 +20,19 @@ const countStudents = (path) => new Promise((resolve, reject) => {
         const studentPropValues = studentRecord
           .slice(0, studentRecord.length - 1);
         const field = studentRecord[studentRecord.length - 1];
-        if (!Object.keys(stud_grp).includes(field)) {
-          stud_grp[field] = [];
+        if (!Object.keys(studGrp).includes(field)) {
+          studGrp[field] = [];
         }
         const studentEntries = studentPropNames
           .map((propName, idx) => [propName, studentPropValues[idx]]);
-        stud_grp[field].push(Object.fromEntries(studentEntries));
+        studGrp[field].push(Object.fromEntries(studentEntries));
       }
 
       const totalStudents = Object
-        .values(stud_grp)
+        .values(studGrp)
         .reduce((pre, cur) => (pre || []).length + cur.length);
       console.log(`Number of students: ${totalStudents}`);
-      for (const [field, group] of Object.entries(stud_grp)) {
+      for (const [field, group] of Object.entries(studGrp)) {
         const studentNames = group.map((student) => student.firstname).join(', ');
         console.log(`Number of students in ${field}: ${group.length}. List: ${studentNames}`);
       }
