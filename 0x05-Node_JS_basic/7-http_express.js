@@ -9,7 +9,6 @@ app.get('/', (req, res) => {
 
 const DB_FILE = process.argv.length > 2 ? process.argv[2] : '';
 
-
 const countStudents = (dbpath) => new Promise((resolve, reject) => {
   if (!dbpath) {
     reject(new Error('Cannot load the database'));
